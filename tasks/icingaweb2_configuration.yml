@@ -1,0 +1,23 @@
+- name: create resources.ini
+  template:
+    src: resources.ini.j2
+    dest: "{{ icingaweb2_config_dir }}/resources.ini"
+    owner: "{{ httpd_user }}"
+    group: "{{ icingaweb2_group }}"
+    mode: 0660
+
+- name: create config.ini
+  template:
+    src: config.ini.j2
+    dest: "{{ icingaweb2_config_dir }}/config.ini"
+    owner: "{{ httpd_user }}"
+    group: "{{ icingaweb2_group }}"
+    mode: 0660
+
+- name: create authentication.ini
+  template:
+    src: authentication.ini.j2
+    dest: "{{ icingaweb2_config_dir }}/authentication.ini"
+    owner: "{{ httpd_user }}"
+    group: "{{ icingaweb2_group }}"
+    mode: 0660

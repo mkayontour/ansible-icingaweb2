@@ -1,0 +1,18 @@
+---
+- name: Include OS specific vars
+  include_vars: "{{ lookup('first_found', params) }}"
+    vars:
+      params:
+        files:
+          - "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+          - "{{ ansible_os_family }}.yml"
+        paths:
+          - 'vars'
+  tags:
+    - config
+    - install
+
+- name: include icingaweb2 configuration
+  include: icingaweb2_configuration.yml
+  tags:
+    - config
