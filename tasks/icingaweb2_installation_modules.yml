@@ -4,7 +4,9 @@
     repo: "{{ item.git_url }}"
     dest: "{{ icingaweb2_modules_path }}/{{ item.name }}"
     version: "{{ item.version }}"
+  when: item.git_url is defined
   loop: "{{ icingaweb2_modules }}"
+
 
 - name: activate installed modules
   become: yes

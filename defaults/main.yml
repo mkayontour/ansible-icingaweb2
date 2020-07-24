@@ -55,7 +55,8 @@ icingaweb2_config:
   themes:
     default: Icinga
 
-#icingaweb2_modules: []
+icingaweb2_modules:
+  - name: monitoring
   # - name: director
   #   git_url: https://github.com/Icinga/icingaweb2-module-director.git
   #   version: v1.7.2
