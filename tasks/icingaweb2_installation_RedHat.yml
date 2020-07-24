@@ -21,5 +21,4 @@
   yum:
     name: icingaweb2
     state: present
-  notify: start httpd
   when: icingaweb2_manage_package
