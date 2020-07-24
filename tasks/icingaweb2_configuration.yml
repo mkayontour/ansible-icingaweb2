@@ -21,3 +21,4 @@
     owner: "{{ httpd_user }}"
     group: "{{ icingaweb2_group }}"
     mode: 0660
+  

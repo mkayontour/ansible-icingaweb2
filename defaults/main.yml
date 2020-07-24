@@ -6,10 +6,24 @@ icingaweb2_resources:
     type: db
     db: mysql
     host: localhost
+    dbname: icinga
     username: icinga
     password: icinga
     use_ssl: 0
     charset: utf8
+  icingaweb2_db:
+    type: db
+    db: mysql
+    host: localhost
+    dbname: icingaweb2
+    username: icingaweb2
+    password: icingaweb2
+    use_ssl: 0
+
+icingaweb2_authentication:
+  icingaweb2:
+    backend: db
+    resource: icingaweb2_db
 
 icingaweb2_config:
   global:
