@@ -38,4 +38,3 @@ icingaweb2_config:
     facility: user
   themes:
     default: Icinga
-  authentication:
