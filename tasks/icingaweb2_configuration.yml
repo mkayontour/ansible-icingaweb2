@@ -1,6 +1,6 @@
-- name: create {{ item }}
+- name: create icingaweb2 config files
   template:
-    src: {{ item }}.j2
+    src: "{{ item }}.j2"
     dest: "{{ icingaweb2_config_dir }}/{{ item }}"
     owner: "{{ httpd_user }}"
     group: "{{ icingaweb2_group }}"
