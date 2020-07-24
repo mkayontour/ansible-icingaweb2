@@ -1,0 +1,13 @@
+- name: install icingaweb2 modules
+  become: yes
+  git:
+    repo: "{{ item.git_url }}"
+    dest: "{{ icingaweb2_modules_path }}/{{ item.name }}"
+    version: "{{ item.version }}"
+  loop: "{{ icingaweb2_modules }}"
+
+- name: activate installed modules
+  become: yes
+  shell: "/usr/bin/icingacli module enable {{ item.name }}"
+  changed_when: false
+  loop: "{{ icingaweb2_modules }}"

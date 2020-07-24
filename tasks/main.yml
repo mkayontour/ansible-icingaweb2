@@ -12,7 +12,18 @@
     - install
     - config
 
+- name: include icingaweb2 installation
+  include: "icingaweb2_installation_{{ ansible_os_family }}.yml"
+  tags:
+    - install
+
 - name: include icingaweb2 configuration
   include: icingaweb2_configuration.yml
   tags:
     - config
+
+- name: include icingaweb2 modules installation
+  include: icingaweb2_installation_modules.yml
+  when: icingaweb2_modules is defined
+  tags:
+    - install

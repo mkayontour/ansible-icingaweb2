@@ -1,5 +1,41 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    icingaweb2_roles:
+      administrators:
+        users: icinga
+        permissions: "*"
+        groups: Administrators
+    icingaweb2_groups:
+      icingaweb2:
+        backend: db
+        resource: icingaweb_db
+    icingaweb2_resources:
+      icinga_ido:
+        type: db
+        db: mysql
+        host: localhost
+        dbname: icinga
+        username: icinga
+        password: icinga
+        use_ssl: 0
+        charset: utf8
+      icinga_director:
+        type: db
+        db: mysql
+        host: localhost
+        username: director
+        password: director
+        dbname: director
+        charset: utf8
+      icingaweb_db:
+        type: db
+        db: mysql
+        host: localhost
+        dbname: icingaweb
+        username: icingaweb
+        password: icingaweb
+        use_ssl: 0
   roles:
     - ansible-icingaweb2
