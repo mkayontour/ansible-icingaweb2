@@ -1,12 +1,32 @@
-Role Name
+ansible-icingaweb2
 =========
 
-A brief description of the role goes here.
+A Ansible role to install Icinga Web 2 and configures it throughly. The roles contains installation of Icinga Web 2 packages, configuration of the all configuration files and setup of the monitoring module.
+
+In addition the role provides an easy way to install and enable Icinga Web 2 modules. The configuration of those modules need to be done manually or in a seperate role.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+There are no specific requirements needed for this role. But a few this need to be mentioned ahead.
+
+Choose your webserver application by your self, by installing the webserver before installing Icinga Web 2.
+
+In addition you need a role which provides a running database and please make sure to import the schema at first. If you want to use authentication within the database. If you are using ldap or external auth there's no need to have the database.
+
+```
+- name: Import Icinga Web 2 database schema.
+  mysql_db:
+    name: icingaweb
+    state: import
+    target: /usr/share/icingaweb2/etc/schema/mysql.schema.sql
+    login_user: icingaweb
+    login_password: icingaweb
+    login_host: localhost
+
+
+
+
 
 Role Variables
 --------------
