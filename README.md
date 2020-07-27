@@ -24,7 +24,7 @@ In addition you need a role which provides a running database and please make su
     login_password: icingaweb
     login_host: localhost
 
-
+```
 
 
 
