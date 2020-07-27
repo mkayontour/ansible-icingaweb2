@@ -14,6 +14,15 @@
   changed_when: false
   loop: "{{ icingaweb2_modules }}"
 
+- name: ensure directory module monitoring exists
+  become: yes
+  file:
+    state: directory
+    dest: "{{ icingaweb2_config_dir }}/modules/monitoring"
+    owner: "{{ icingaweb2_httpd_user }}"
+    group: "{{ icingaweb2_group }}"
+    mode: 2770
+
 - name: manage module monitoring configuration
   become: yes
   template:
