@@ -20,4 +20,4 @@
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
     mode: 0660
-  when: icingaweb2_manage_roles
+  when: icingaweb2_manage_roles is defined
