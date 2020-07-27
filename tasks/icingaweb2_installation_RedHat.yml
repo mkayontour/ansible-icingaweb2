@@ -26,7 +26,7 @@
 - name: RedHat - Ensure Icinga Web 2 is installed
   become: yes
   yum:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   when: icingaweb2_manage_package
   loop:
