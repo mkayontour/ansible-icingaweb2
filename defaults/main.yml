@@ -55,6 +55,21 @@ icingaweb2_config:
   themes:
     default: Icinga
 
+icingaweb2_monitoring_config:
+  security:
+    protected_customvars: "*pw*,*pass*,community"
+icingaweb2_monitoring_backends:
+  icinga:
+    type: ido
+    resource: icinga_ido
+icingaweb2_monitoring_commandtransports:
+  icinga2:
+    transport: api
+    host: localhost
+    port: 5665
+    username: root
+    password: root
+
 icingaweb2_modules:
   - name: monitoring
   # - name: director

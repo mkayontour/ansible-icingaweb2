@@ -13,3 +13,17 @@
   shell: "/usr/bin/icingacli module enable {{ item.name }}"
   changed_when: false
   loop: "{{ icingaweb2_modules }}"
+
+- name: manage module monitoring configuration
+  become: yes
+  template:
+    src: "monitoring_{{ item }}.ini.j2"
+    dest: "{{ icingaweb2_config_dir }}/modules/monitoring/{{ item }}.ini"
+    owner: "{{ icingaweb2_httpd_user }}"
+    group: "{{ icingaweb2_group }}"
+    mode: 0660
+  when: icingaweb2_monitoring_{{ item }} is defined
+  loop:
+    - config
+    - backends
+    - commandtransports
