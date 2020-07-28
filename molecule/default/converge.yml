@@ -4,4 +4,4 @@
   tasks:
     - name: "Include ansible-icingaweb2"
       include_role:
-        name: "ansible-icingaweb2"
+        name: "mkayontour.icingaweb2"
