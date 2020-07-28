@@ -1,29 +1,28 @@
 ---
 language: python
-python: "2.7"
+services: docker
 
-# Use the new container infrastructure
-sudo: false
-
-# Install ansible
-addons:
-  apt:
-    packages:
-    - python-pip
+env:
+  global:
+    - ROLE_NAME: icingaweb2
+  matrix:
+    - MOLECULE_DISTRO: centos8
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: debian10
 
 install:
-  # Install ansible
-  - pip install ansible
+  # Install test dependencies.
+  - pip install molecule yamllint ansible-lint docker
 
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-$ROLE_NAME mkayontour.$ROLE_NAME
+  - cd mkayontour.$ROLE_NAME
 
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-
-notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  # Run tests.
+  - molecule test

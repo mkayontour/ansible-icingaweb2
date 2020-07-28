@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-icingaweb2"
+      include_role:
+        name: "ansible-icingaweb2"
