@@ -1,0 +1,12 @@
+---
+- name: prepare container
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: apt update
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - gnupg
+      when: ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "18"
