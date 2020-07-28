@@ -3,6 +3,7 @@
   become: yes
   apt:
     name: apt-transport-https
+    update_cache: yes
     state: present
   when: icingaweb2_manage_repository
 
@@ -25,5 +26,6 @@
   apt:
     name: "{{ item }}"
     state: present
+    update_cache: yes
   loop: "{{ icingaweb2_packages }}"
   when: icingaweb2_manage_package
