@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mkayontour/ansible-icingaweb2.svg?branch=master)](https://travis-ci.org/mkayontour/ansible-icingaweb2)
+[![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
 
 ansible-icingaweb2
 =========
