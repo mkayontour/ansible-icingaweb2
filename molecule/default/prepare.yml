@@ -6,6 +6,7 @@
     - name: apt update
       apt:
         name: "{{ item }}"
+        update_cache: yes
         state: present
       loop:
         - gnupg
