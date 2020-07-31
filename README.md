@@ -34,28 +34,150 @@ In addition you need a role which provides a running database and please make su
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+### Installation
+
+The manage variables always trigger something to be managed.
+Package is the normal icingaweb2 packages and repository is the icinga release repo.
+```
+icingaweb2_manage_package: yes
+icingaweb2_manage_centos_scl: yes
+icingaweb2_manage_repository: yes
+```
+
+### Icinga Web 2 Configuration
+
+**resources.ini**
+
+The resources of Icinga Web 2 are defined at `icingaweb2_resources` dictionary.
+Key is name of the resource and then all needed options which go into the **resources.ini**
+```
+icingaweb2_resources:
+  icinga_ido:
+    type: db
+    db: mysql
+    host: localhost
+    dbname: icinga
+    username: icinga
+    password: icinga
+    use_ssl: 0
+    charset: utf8
+  icingaweb_db:
+    type: db
+    db: mysql
+    host: localhost
+    dbname: icingaweb
+    username: icingaweb
+    password: icingaweb
+    use_ssl: 0
+```
+
+All Icinga Web 2 configuration files have their own dictionary to create every section and option.
+
+**groups.ini**
+```
+icingaweb2_groups:
+  icingaweb2:
+    backend: db
+    resource: icingaweb_db
+```
+
+**authentication.ini**
+```
+icingaweb2_authentication:
+  icingaweb2:
+    backend: db
+    resource: icingaweb_db
+```
+
+**config.ini**
+```
+icingaweb2_config:
+  global:
+    show_stacktraces: 1
+    show_application_state_messages: 1
+    config_backend: ini
+    module_path: /usr/share/icingaweb2/modules
+  logging:
+    log: syslog
+    level: ERROR
+    application: icingaweb2
+    facility: user
+  themes:
+    default: Icinga
+```
+
+If you want to congfigure your roles automatically then please use this dictionary. When the var **icingaweb2_roles** is not defined, the task will be skipped.
+```
+icingaweb2_roles:
+  administrators:
+    users: icinga
+    permissions: "*"
+    groups: Administrators
+```
+
+### Monitoring Module
+
+The monitoring module will be installed by default. To create configuration for the module please use the following dictionaries.
+```
+icingaweb2_monitoring_config:
+  security:
+    protected_customvars: "*pw*,*pass*,community"
+icingaweb2_monitoring_backends:
+  icinga:
+    type: ido
+    resource: icinga_ido
+icingaweb2_monitoring_commandtransports:
+  icinga2:
+    transport: api
+    host: localhost
+    port: 5665
+    username: root
+    password: root
+```
+
+### Adding Icinga Web 2 Modules
+
+To add specific modules to Icinga Web 2 you can configure this list of modules.
+Please ensure the monitoring module stays in this list as well.
+
+All modules in this list with the option **git_url** set will be cloned via git to the modules directory.
+```
+icingaweb2_modules:
+  - name: monitoring
+  # - name: director
+  #   git_url: https://github.com/Icinga/icingaweb2-module-director.git
+  #   version: v1.7.2
+  # - name: ipl
+  #   git_url: https://github.com/Icinga/icingaweb2-module-ipl.git
+  #   version: v0.5.0
+  # - name: reactbundle
+  #   git_url: https://github.com/Icinga/icingaweb2-module-reactbundle.git
+  #   version: v0.7.0
+  # - name: incubator
+  #   git_url: https://github.com/Icinga/icingaweb2-module-incubator.git
+  #   version: v0.5.0
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+There are no dependencies for this module.
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+    - hosts: icingaweb2
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: mkayontour.icingaweb2, }
 
 License
 -------
 
-BSD
+Apache-2.0
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Twitter: @mkayontour 
