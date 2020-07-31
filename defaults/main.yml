@@ -5,11 +5,11 @@ icingaweb2_manage_centos_scl: yes
 icingaweb2_manage_repository: yes
 icingaweb2_manage_roles: yes
 icingaweb2_modules_path: /usr/share/icingaweb2/modules
-icingaweb2_roles:
-    administrators:
-      users: icinga
-      permissions: "*"
-      groups: Administrators
+# icingaweb2_roles:
+#   administrators:
+#     users: icinga
+#     permissions: "*"
+#     groups: Administrators
 icingaweb2_config_dir: /etc/icingaweb2
 icingaweb2_group: icingaweb2
 icingaweb2_resources:
