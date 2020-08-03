@@ -4,29 +4,9 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: centos7
-    image: solita/centos-systemd:7
+  - name: instance-${MOLECULE-IMAGE}
+    image: ${MOLECULE-IMAGE}
     command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: centos6
-    image: centos:centos6.10
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: ubuntu16
-    image: ubuntu:16.04
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: ubuntu18
-    image: ubuntu:18.04
     capabilities:
       - SYS_ADMIN
     volumes:
