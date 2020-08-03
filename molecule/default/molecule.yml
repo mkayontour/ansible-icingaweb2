@@ -5,7 +5,7 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: ${MOLECULE-IMAGE}
+    image: ${MOLECULE_IMAGE}
     command: /sbin/init
     capabilities:
       - SYS_ADMIN
