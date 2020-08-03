@@ -6,8 +6,8 @@ env:
   global:
     - ROLE_NAME: icingaweb2
   matrix:
-    - MOLECULE_IMAGE: "centos:centos7.10"
-    - MOLECULE_IMAGE: "centos:centos6.10"
+    - MOLECULE_IMAGE: "centos:centos7"
+    - MOLECULE_IMAGE: "centos:centos6"
     - MOLECULE_IMAGE: "ubuntu:16.04"
     - MOLECULE_IMAGE: "ubuntu:18.04"
     - MOLECULE_IMAGE: "debian:10"
