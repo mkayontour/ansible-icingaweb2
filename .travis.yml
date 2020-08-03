@@ -6,12 +6,12 @@ env:
   global:
     - ROLE_NAME: icingaweb2
   matrix:
-    - MOLECULE_IMAGE: "centos:centos8"
-    - MOLECULE_IMAGE: "centos:centos7"
-    - MOLECULE_IMAGE: "centos:centos6"
-    - MOLECULE_IMAGE: "ubuntu:16.04"
-    - MOLECULE_IMAGE: "ubuntu:18.04"
-    - MOLECULE_IMAGE: "debian:10"
+    - MOLECULE_DISTRO: "centos7"
+    - MOLECULE_DISTRO: "centos6"
+    - MOLECULE_DISTRO: "ubuntu1604"
+    - MOLECULE_DISTRO: "ubuntu1804"
+    - MOLECULE_DISTRO: "debian9"
+    - MOLECULE_DISTRO: "debian10"
 
 install:
   # Install test dependencies.
