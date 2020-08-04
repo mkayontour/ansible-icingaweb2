@@ -1,5 +1,6 @@
 galaxy_info:
-  author: Thilo Wening
+  role_name: icingaweb2
+  author: mkayontour
   description: Installs and configures Icinga Web 2
   company: NETWAYS GmbH
 
