@@ -38,8 +38,8 @@ galaxy_info:
        - xenial
    - name: Debian
      versions:
-       - 9
-       - 10
+       - buster
+       - stretch
   #   - 7
   #   - 99.99
 
