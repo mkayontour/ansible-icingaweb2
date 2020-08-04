@@ -1,7 +1,7 @@
 galaxy_info:
   role_name: icingaweb2
   author: mkayontour
-  description: Installs and configures Icinga Web 2
+  description: Installs and configures Icinga Web 2 on Rhel, Debian and Ubuntu
   company: NETWAYS GmbH
 
   # If the issue tracker for your role is not on github, uncomment the
