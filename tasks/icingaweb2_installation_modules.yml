@@ -21,7 +21,7 @@
     dest: "{{ icingaweb2_config_dir }}/modules/monitoring"
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
-    mode: 2770
+    mode: "2770"
 
 - name: manage module monitoring configuration
   become: yes
@@ -30,7 +30,7 @@
     dest: "{{ icingaweb2_config_dir }}/modules/monitoring/{{ item }}.ini"
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
-    mode: 0660
+    mode: "0660"
   when: icingaweb2_monitoring_{{ item }} is defined
   loop:
     - config
