@@ -10,8 +10,10 @@
 
 - name: activate installed modules
   become: yes
-  shell: "/usr/bin/icingacli module enable {{ item.name }}"
-  changed_when: false
+  command:
+    cmd: "/usr/bin/icingacli module enable {{ item.name }}"
+    creates:
+      "{{ icingaweb2_config_dir }}/enabledModules/{{ item.name }}"
   loop: "{{ icingaweb2_modules }}"
 
 - name: ensure directory module monitoring exists
