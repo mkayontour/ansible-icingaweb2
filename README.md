@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/mkayontour/ansible-icingaweb2.svg?branch=master)](https://travis-ci.org/mkayontour/ansible-icingaweb2)
 [![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
+[![Ansible Quality Score](https://img.shields.io/ansible/quality/50067?label=role%20quality)](https://galaxy.ansible.com/mkayontour/icingaweb2)
+
 
 ansible-icingaweb2
 =========
@@ -180,4 +182,4 @@ Apache-2.0
 Author Information
 ------------------
 
-Twitter: @mkayontour 
+Twitter: @mkayontour
