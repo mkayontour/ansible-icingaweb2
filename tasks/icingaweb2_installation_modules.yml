@@ -33,7 +33,7 @@
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
     mode: "0660"
-  when: icingaweb2_monitoring_{{ item }} is defined
+  when: vars['icingaweb2_monitoring_' + item] is defined
   loop:
     - config
     - backends
