@@ -5,7 +5,7 @@
     dest: "{{ icingaweb2_config_dir }}/{{ item }}"
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
-    mode: 0660
+    mode: "0660"
   loop:
     - resources.ini
     - config.ini
@@ -19,5 +19,5 @@
     dest: "{{ icingaweb2_config_dir }}/roles.ini"
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
-    mode: 0660
+    mode: "0660"
   when: icingaweb2_roles is defined
