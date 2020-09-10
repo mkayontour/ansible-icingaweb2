@@ -24,5 +24,9 @@ galaxy_info:
     - monitoring
     - webinterface
     - icingaweb2
+    - rhel
+    - debian
+    - ubuntu
+    - centos
 
 dependencies: []
