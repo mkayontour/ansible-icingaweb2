@@ -11,7 +11,7 @@
 - name: create icinga-director service
   copy:
     dest: /etc/systemd/system
-    src: "{{ icingaweb2_modules_path }}"/director/contrib/systemd/icinga-director.service
+    src: "{{ icingaweb2_modules_path }}/director/contrib/systemd/icinga-director.service"
     remote_src: yes
     owner: root
     group: root
