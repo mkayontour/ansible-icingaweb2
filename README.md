@@ -180,7 +180,7 @@ To enable the systemd service use the variable `icingaweb2_manage_director_servi
 Then there are a few variables to configure the **config.ini** and **kickstart.ini**.
 
 ```
-`icingaweb2_director_resource`: Name of the Icinga Web 2 Director resource (DB)
+icingaweb2_director_resource: Name of the Icinga Web 2 Director resource (DB)
 
 icingaweb2_director_kickstart_endpoint: For the kickstart script the name of the endpoint (common name of the master). If this var is not defined, the **kickstart.ini** won't be created.
 
