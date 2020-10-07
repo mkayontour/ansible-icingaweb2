@@ -8,13 +8,18 @@ icingaweb2_manage_director: no
 icingaweb2_config_dir: /etc/icingaweb2
 icingaweb2_modules_path: /usr/share/icingaweb2/modules
 icingaweb2_modules_config: "{{ icingaweb2_config_dir }}/modules"
+icingaweb2_group: icingaweb2
+
+# Director
+icingaweb2_director_home: /var/lib/icingadirector
+icingaweb2_manage_director_service: no
 # icingaweb2_roles:
 #   administrators:
 #     users: icinga
 #     permissions: "*"
 #     groups: Administrators
 
-icingaweb2_group: icingaweb2
+
 icingaweb2_resources:
   icinga_ido:
     type: db

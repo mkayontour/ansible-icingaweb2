@@ -175,6 +175,8 @@ to add icingaweb2 modules.**
 To manage the director, you can use the variable `icingaweb2_manage_director` to
 enable the include.
 
+To enable the systemd service use the variable `icingaweb2_manage_director_service`.
+
 Then there are a few variables to configure the **config.ini** and **kickstart.ini**.
 
 `icingaweb2_director_resource`: Name of the Icinga Web 2 Director resource (DB)
