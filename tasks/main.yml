@@ -38,7 +38,7 @@
     - config
 
 - name: include managing director service
-  inlcude: icingaweb2_manage_director_service.yml
+  include: icingaweb2_manage_director_service.yml
   when:
     - icingaweb2_manage_director
     - icingaweb2_manage_director_service
