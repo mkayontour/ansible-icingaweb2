@@ -199,7 +199,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: icingaweb2
       roles:
-         - { role: mkayontour.icingaweb2, }
+         - { role: mkayontour.icingaweb2 }
 
 License
 -------
