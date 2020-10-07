@@ -29,3 +29,18 @@
   when: icingaweb2_modules is defined
   tags:
     - install
+
+- name: include managing director
+  include: icingaweb2_manage_director.yml
+  when: icingaweb2_manage_director
+  tags:
+    - install
+    - config
+
+- name: include managing director service
+  include: icingaweb2_manage_director_service.yml
+  when:
+    - icingaweb2_manage_director
+    - icingaweb2_manage_director_service
+  tags:
+    - install

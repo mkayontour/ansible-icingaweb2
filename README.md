@@ -46,6 +46,14 @@ icingaweb2_manage_centos_scl: yes
 icingaweb2_manage_repository: yes
 ```
 
+If the Director should be managed, you can use the following variable.
+```
+icingaweb2_manage_director: yes
+```
+
+For more Information about the Director see section `director` down below.
+
+
 ### Icinga Web 2 Configuration
 
 **resources.ini**
@@ -160,6 +168,32 @@ icingaweb2_modules:
   #   version: v0.5.0
 ```
 
+### Director
+**Please make sure the git repo for the director is installed or use the feature
+to add icingaweb2 modules.**
+
+To manage the director, you can use the variable `icingaweb2_manage_director` to
+enable the include.
+
+To enable the systemd service use the variable `icingaweb2_manage_director_service`.
+
+Then there are a few variables to configure the **config.ini** and **kickstart.ini**.
+
+```
+icingaweb2_director_resource: Name of the Icinga Web 2 Director resource (DB)
+
+icingaweb2_director_kickstart_endpoint: For the kickstart script the name of the endpoint (common name of the master). If this var is not defined, the **kickstart.ini** won't be created.
+
+icingaweb2_director_kickstart_host: can be a resolvable hostname or an IP address.
+Default: "localhost"
+
+icingaweb2_director_kickstart_port: Port is 5665 per default in case none is given.
+
+icingaweb2_director_kickstart_username: Username of the Director API User. Default: "root"
+
+icingaweb2_director_kickstart_password: Password of the Director API User. Default: "root"
+```
+
 Dependencies
 ------------
 
@@ -172,7 +206,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: icingaweb2
       roles:
-         - { role: mkayontour.icingaweb2, }
+         - { role: mkayontour.icingaweb2 }
 
 License
 -------
