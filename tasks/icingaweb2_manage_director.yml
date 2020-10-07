@@ -38,3 +38,13 @@
   when:
     - pending.rc == 0
     - "'ERROR' not in pending.stdout"
+
+- name: check if kickstart is required
+  command: /usr/bin/icingacli director kickstart required --verbose || /bin/true
+  register: kickstart
+  changed_when: "'Kickstart has been configured and should be triggered' in kickstart.stdout"
+  failed_when: "'ERROR' in kickstart.stdout"
+
+- name: run kickstart.changed is true
+  command: /usr/bin/icingacli director kickstart run --verbose
+  when: kickstart.changed
