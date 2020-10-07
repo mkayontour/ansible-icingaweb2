@@ -4,6 +4,7 @@ icingaweb2_manage_package: yes
 icingaweb2_manage_centos_scl: yes
 icingaweb2_manage_repository: yes
 icingaweb2_manage_roles: yes
+icingaweb2_manage_director: no
 icingaweb2_config_dir: /etc/icingaweb2
 icingaweb2_modules_path: /usr/share/icingaweb2/modules
 icingaweb2_modules_config: "{{ icingaweb2_config_dir }}/modules"
