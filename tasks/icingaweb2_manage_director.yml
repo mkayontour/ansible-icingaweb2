@@ -13,6 +13,7 @@
     dest: "{{ icingaweb2_modules_config }}/director/config.ini"
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
+    mode: "0660"
     content: |
       [db]
       resource="{{ icingaweb2_director_resource }}"
@@ -25,6 +26,7 @@
     dest: "{{ icingaweb2_modules_config }}/director/kickstart.ini"
     owner: "{{ icingaweb2_httpd_user }}"
     group: "{{ icingaweb2_group }}"
+    mode: "0660"
     content: |
       [config]
       endpoint="{{ icingaweb2_director_kickstart_endpoint }}
@@ -60,13 +62,7 @@
   register: kickstart
   changed_when: "'Kickstart has been configured and should be triggered' in kickstart.stdout"
   failed_when: "'ERROR' in kickstart.stdout"
-  tags:
-    - config
-    - install
-
-- name: run kickstart.changed is true
-  command: /usr/bin/icingacli director kickstart run --verbose
-  when: kickstart.changed
+  notify: run-kickstart
   tags:
     - config
     - install
