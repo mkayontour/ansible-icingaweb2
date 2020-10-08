@@ -10,6 +10,13 @@ A Ansible role to install Icinga Web 2 and configures it throughly. The roles co
 
 In addition the role provides an easy way to install and enable Icinga Web 2 modules. The configuration of those modules need to be done manually or in a seperate role.
 
+Installation
+------------
+
+```
+ansible-galaxy install mkayontour.icingaweb2
+```
+
 Requirements
 ------------
 
