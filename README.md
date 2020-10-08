@@ -179,20 +179,25 @@ To enable the systemd service use the variable `icingaweb2_manage_director_servi
 
 Then there are a few variables to configure the **config.ini** and **kickstart.ini**.
 
-```
-icingaweb2_director_resource: Name of the Icinga Web 2 Director resource (DB)
+**config.ini**
 
-icingaweb2_director_kickstart_endpoint: For the kickstart script the name of the endpoint (common name of the master). If this var is not defined, the **kickstart.ini** won't be created.
+`icingaweb2_director_resource`: Name of the Icinga Web 2 Director resource (DB)
 
-icingaweb2_director_kickstart_host: can be a resolvable hostname or an IP address.
+
+**kickstart.ini**
+
+
+`icingaweb2_director_kickstart_endpoint:` For the kickstart script the name of the endpoint (common name of the master). If this var is not defined, the **kickstart.ini** won't be created. And therefore the kickstart won't be run.
+
+`icingaweb2_director_kickstart_host:` can be a resolvable hostname or an IP address.
 Default: "localhost"
 
-icingaweb2_director_kickstart_port: Port is 5665 per default in case none is given.
+`icingaweb2_director_kickstart_port:` Port is 5665 per default in case none is given.
 
-icingaweb2_director_kickstart_username: Username of the Director API User. Default: "root"
+`icingaweb2_director_kickstart_username:` Username of the Director API User. Default: "root"
 
-icingaweb2_director_kickstart_password: Password of the Director API User. Default: "root"
-```
+`icingaweb2_director_kickstart_password:` Password of the Director API User. Default: "root"
+
 
 Dependencies
 ------------
