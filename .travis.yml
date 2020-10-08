@@ -2,6 +2,10 @@
 language: python
 services: docker
 
+branches:
+  except:
+    - /^feature.*/
+
 env:
   global:
     - ROLE_NAME: icingaweb2
