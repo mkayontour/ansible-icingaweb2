@@ -151,6 +151,9 @@ To add specific modules to Icinga Web 2 you can configure this list of modules.
 Please ensure the monitoring module stays in this list as well.
 
 All modules in this list with the option **git_url** set will be cloned via git to the modules directory.
+
+**INFO: Ensure git is installed on the system before starting the playbook**
+
 ```
 icingaweb2_modules:
   - name: monitoring
